@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+    <display-name>TutorialsPoint Country Service</display-name>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>spring-ws</servlet-name>
+        <servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet
+        </servlet-class>
+        <init-param>
+            <param-name>transformWsdlLocations</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value></param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>spring-ws</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+</web-app>
